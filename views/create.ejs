@@ -1,0 +1,56 @@
+
+    <div class="container my-4">
+        <div class="row justify-content-center">
+            <div class="col-xl-5">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-around">
+                        <a href="/student" class="btn btn-primary">Back to all students</a>
+                        <h3>Add new student</h3>
+                    </div>
+                    <div class="card-body">
+                       <form action="/student" method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+                          <label for="name" class="form-label">Name</label>
+                          <input type="text" name="name" id="name" class="form-control" placeholder="Your full name">
+                        </div>
+                        <div class="mb-3">
+                          <label for="email" class="form-label">E-mail</label>
+                          <input type="email" name="email" id="email" class="form-control" placeholder="E-mail address">
+                        </div>
+                        <div class="mb-3">
+                          <label for="username" class="form-label">Username</label>
+                          <input type="text" name="username" id="username" class="form-control" placeholder="Set username">
+                        </div>
+                        <div class="mb-3">
+                          <label for="cell" class="form-label">Number</label>
+                          <input type="text" name="cell" id="cell" class="form-control" placeholder="Active mobile number">
+                        </div>
+                        <div class="mb-3">
+                          <label for="location" class="form-label">Location</label>
+                          <select class="form-select" name="location" id="location">
+                            <option value="">-- Select a city --</option>
+                            <option value="Dhaka">Dhaka</option>
+                            <option value="Khulna">Khulna</option>
+                            <option value="Barishal">Barishal</option>
+                            <option value="Chattogram">Chattogram</option>
+                            <option value="Rajshahi">Rajshahi</option>
+                            <option value="Rangpur">Rangpur</option>
+                            <option value="Mymensingh">Mymensingh</option>
+                            <option value="Sylhet">Sylhet</option>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="photo" class="form-label">photo</label>
+                            <input type="file" name="photo" id="photo" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                          <label for="password" class="form-label">Password</label>
+                          <input type="password" name="password" id="password" class="form-control" placeholder="Make a strong password">
+                        </div>
+                        <button class="btn btn-success" type="submit">Add student</button>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
