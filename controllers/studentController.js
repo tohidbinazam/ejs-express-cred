@@ -1,5 +1,7 @@
 const studentModel = require("../models/studentModel");
 const bcryptjs = require('bcryptjs')
+const fs = require('fs');
+const path = require("path");
 
 /**
  * @desc Get all students
@@ -30,7 +32,9 @@ const createStudent = async (req, res) => {
     // Hash password
     let password = await bcryptjs.hash(req.body.password, 12)
 
-    await studentModel.create({...req.body, photo: req.file.filename, password})
+    let file = req.file ? req.file.filename : undefined
+    console.log(req.body);
+    await studentModel.create({...req.body, photo: file, password})
     res.redirect('/student')
 }
 
@@ -67,7 +71,14 @@ const editForm = async (req, res) => {
  */
 const editStudent = async (req, res) => {
     let id = req.params.id
-    let file = req.file ? req.file.filename : req.body.old_photo
+
+    let file = req.body.old_photo
+    if (req.file) {
+        file = req.file.filename 
+        fs.unlink(path.join(__dirname, `../assets/upload/images/${req.body.old_photo}`), (error) => {
+           console.log(`File removed /assets/upload/images/${req.body.old_photo}`);
+        })
+    }
 
     await studentModel.findByIdAndUpdate(id, {...req.body, photo: file}, { new: true })
     res.redirect('/student')

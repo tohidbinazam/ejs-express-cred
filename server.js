@@ -36,4 +36,4 @@ app.use('/student', require('./routes/studentRoute'))
 
 
 // Server listen
-app.listen(server_port, () => console.log(`${app_name} running on http://localhost:${server_port}`.bgMagenta))
+app.listen(server_port, () => console.log(`${app_name} running on http://localhost:${server_port}/student`.bgMagenta))

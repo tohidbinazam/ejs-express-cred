@@ -24,7 +24,7 @@ const studentModal = mongoose.Schema({
     },
     cell : {
         type : String,
-        required : [true, 'Username is required'],
+        required : [true, 'Phone number is required'],
         unique : [true, 'Invalid mobile number'],
         trim : true
     },
@@ -34,7 +34,7 @@ const studentModal = mongoose.Schema({
     },
     photo : {
         type : String,
-        default : '/assets/upload/images/profile.jpeg'
+        default : 'avatar.jpg'
     },
     password : {
         type : String,
