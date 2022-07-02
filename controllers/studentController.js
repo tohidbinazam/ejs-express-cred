@@ -33,7 +33,6 @@ const createStudent = async (req, res) => {
     let password = await bcryptjs.hash(req.body.password, 12)
 
     let file = req.file ? req.file.filename : undefined
-    console.log(req.body);
     await studentModel.create({...req.body, photo: file, password})
     res.redirect('/student')
 }
